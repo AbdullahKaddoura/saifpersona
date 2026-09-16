@@ -52,15 +52,16 @@ export default function Socials() {
   const navigate = useNavigate();
   const { content, update } = useContent();
 
-  // Details and links come from the editable content store.
+  // Details and links come from the editable content store. A field saved as
+  // empty stays empty; the built-in defaults only fill fields never saved.
   const ITEMS = BASE_ITEMS.map((item) => {
     const s = content.socials[item.id] || {};
     return {
       ...item,
-      href: s.url || item.href,
+      href: s.url ?? item.href,
       details: [
-        { label: "USER", value: s.user || item.details[0].value, icon: "" },
-        { label: "STATUS", value: s.status || item.details[1].value, icon: "" },
+        { label: "USER", value: s.user ?? item.details[0].value, icon: "" },
+        { label: "STATUS", value: s.status ?? item.details[1].value, icon: "" },
       ],
     };
   });
@@ -86,7 +87,7 @@ export default function Socials() {
         if (e.key === "ArrowUp") setActive(i => Math.max(0, i - 1));
         if (e.key === "ArrowDown") setActive(i => Math.min(ITEMS.length - 1, i + 1));
         if (e.key === "ArrowRight") { setFocus("right"); setActiveInfoBar(0); }
-        if (e.key === "Enter") window.open(ITEMS[active].href, "_blank");
+        if (e.key === "Enter" && ITEMS[active].href) window.open(ITEMS[active].href, "_blank");
       } else {
         const barCount = ITEMS[active].bars;
         if (e.key === "ArrowUp") setActiveInfoBar(i => Math.max(0, i - 1));
@@ -594,7 +595,7 @@ export default function Socials() {
             key={item.id}
             className={`sc-bar-outer${active === i ? " active" : ""}${mounted ? " mounted" : ""}`}
             onClick={() => {
-              if (active === i) window.open(item.href, "_blank");
+              if (active === i && item.href) window.open(item.href, "_blank");
               else setActive(i);
             }}
             onMouseEnter={() => setActive(i)}
