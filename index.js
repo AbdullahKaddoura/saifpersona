@@ -10,10 +10,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Editable site content lives in a JSON file next to the server.
-// Edits are accepted only with the edit password (EDIT_PASSWORD env, default 1509).
+// Edits are accepted only with the edit password (EDIT_PASSWORD env, default 6969).
 const DATA_DIR = path.join(__dirname, 'data');
 const CONTENT_FILE = path.join(DATA_DIR, 'content.json');
-const EDIT_PASSWORD = process.env.EDIT_PASSWORD || '1509';
+const EDIT_PASSWORD = process.env.EDIT_PASSWORD || '6969';
 
 function readContent() {
   try {

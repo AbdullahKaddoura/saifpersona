@@ -5,7 +5,7 @@
 // back to per-browser storage.
 import { list, put } from '@vercel/blob';
 
-export const EDIT_PASSWORD = process.env.EDIT_PASSWORD || '1509';
+export const EDIT_PASSWORD = process.env.EDIT_PASSWORD || '6969';
 
 // Vercel names the token BLOB_READ_WRITE_TOKEN, or <PREFIX>_BLOB_READ_WRITE_TOKEN
 // when a custom prefix was chosen while connecting the store. Accept either.

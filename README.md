@@ -121,7 +121,7 @@ Some text on the site can be changed from the site itself by whoever knows the e
   uploaded image or none (EDIT LIST in the footer strip). Uploads are shrunk in the browser and saved by
   the server under `data/uploads/` (served at `/uploads/…`).
 
-The default password is `1509`; set the `EDIT_PASSWORD` environment variable on the server to change it.
+The default password is `6969`; set the `EDIT_PASSWORD` environment variable on the server to change it.
 Edits are saved by the Express server into `data/content.json` (created on first save, not committed).
 On Vercel the same API runs as serverless functions (`api/`) backed by Vercel Blob: create a Blob store in
 the project's Storage tab once and edits/uploads persist there. `vercel.json` rewrites page routes to the

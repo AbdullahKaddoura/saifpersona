@@ -1,7 +1,7 @@
 // Editable site content: defaults here, edits stored through the server API
 // (data/content.json) or, when no server is available, in this browser.
 
-export const EDIT_PASSWORD = "1509";
+export const EDIT_PASSWORD = "6969";
 const LOCAL_KEY = "persona3-content-v1";
 
 export const DEFAULT_CONTENT = {
