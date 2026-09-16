@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ContentContext } from "./useContent.js";
-import { DEFAULT_CONTENT, EDIT_PASSWORD, loadContent, saveContent } from "./content.js";
+import { DEFAULT_CONTENT, EDIT_PASSWORD, loadContent, mergeContent, saveContent } from "./content.js";
 
 const UNLOCK_KEY = "persona3-editor-unlocked";
 
@@ -38,7 +38,8 @@ export function ContentProvider({ children }) {
     const next = fn(content);
     const result = await saveContent(next, EDIT_PASSWORD);
     if (result.ok) {
-      setContent(next);
+      // Merge with defaults so a partial save can never leave a page without the data it renders.
+      setContent(mergeContent(DEFAULT_CONTENT, next));
       setSource(result.source);
     }
     return result;

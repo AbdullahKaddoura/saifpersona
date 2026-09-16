@@ -75,6 +75,7 @@ export default function AboutMe() {
   const saveBio = async (values) => update((c) => ({
     ...c,
     about: {
+      ...c.about,
       bio: values.bio.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean),
       focus: values.focus.trim(),
     },
