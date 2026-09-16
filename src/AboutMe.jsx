@@ -21,7 +21,7 @@ const REVEAL_CONTENT = [
   {
     eyebrow: "Profile",
     upper: [
-      "I am Ahmed Fattouh, aka Dino. I am a calm and collected, stylish workaholic with a strong enthusiasm for visual novels, gaming, and anime.",
+      "I am Saif, aka Dino. I am a calm and collected, stylish workaholic with a strong enthusiasm for visual novels, gaming, and anime.",
       "I love all of my friends and family and am strongly motivated and passionate about my work and everything I enjoy and do.",
       "I am also passionate about building a strong and successful future.",
     ],

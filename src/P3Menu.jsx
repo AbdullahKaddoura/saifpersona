@@ -162,7 +162,7 @@ export default function P3Menu({ onNavigate }) {
 
       <div className="p3r-index" aria-hidden="true">0{active + 1}</div>
 
-      <h1 className="p3r-title">Ahmed's Persona</h1>
+      <h1 className="p3r-title">Saif's Persona</h1>
 
       <nav className="p3r-options" aria-label="Main menu">
         {ITEMS.map((item, i) => (
