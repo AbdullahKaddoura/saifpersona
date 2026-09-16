@@ -1,9 +1,9 @@
-import { createElement, useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContent } from "./useContent.js";
 import EditModal, { EditButton } from "./EditModal.jsx";
 import ListEditor from "./ListEditor.jsx";
-import { FaScaleBalanced, FaGamepad, FaFilm, FaArrowLeft } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa6";
 import char1 from "./assets/char1.png";
 import char2 from "./assets/char2.png";
 import char3 from "./assets/char3.png";
@@ -26,7 +26,6 @@ const REVEAL_CONTENT = [
       "I am also passionate about building a strong and successful future.",
     ],
     lower: "Focus: Lawyer",
-    icon: FaScaleBalanced,
   },
   {
     eyebrow: "Top picks",
@@ -40,7 +39,6 @@ const REVEAL_CONTENT = [
       { title: "Umineko When They Cry", meta: "2007 · 07th Expansion", poster: poster("umineko"), alt: "Umineko When They Cry cover art" },
     ],
     lower: "FAVORITE GAMES",
-    icon: FaGamepad,
   },
   {
     eyebrow: "Top picks",
@@ -52,7 +50,6 @@ const REVEAL_CONTENT = [
       { title: "Steven Universe", meta: "2013 · Cartoon Network", poster: poster("steven-universe"), alt: "Steven Universe: The Movie poster" },
     ],
     lower: "FAVORITE ANIME / SERIES",
-    icon: FaFilm,
   },
 ];
 
@@ -204,7 +201,7 @@ export default function AboutMe() {
                             <span className="am-reveal-num">{pad2(idx)}</span>
                             {hasImage(entry)
                               ? <img className="am-reveal-thumb" src={entry.poster} alt="" loading="lazy" />
-                              : <span className="am-reveal-thumb am-noimg" aria-hidden="true">{createElement(section.icon)}</span>}
+                              : <span className="am-reveal-thumb am-noimg" aria-hidden="true" />}
                             <span className="am-reveal-text">
                               <span className="am-reveal-title-line">{entry.title}</span>
                               <span className="am-reveal-meta">{entry.meta}</span>
@@ -225,7 +222,6 @@ export default function AboutMe() {
                             </>
                           ) : (
                             <div className="am-spotlight-empty" aria-hidden="true">
-                              {createElement(section.icon)}
                               <span>NO IMAGE</span>
                             </div>
                           )}
@@ -242,9 +238,6 @@ export default function AboutMe() {
             </div>
 
             <footer className="am-reveal-lower-bar" key={`foot-${active}`}>
-              <span className="am-reveal-lower-icon" aria-hidden="true">
-                {createElement(section.icon)}
-              </span>
               <span className="am-reveal-lower-text">{section.lower}</span>
               {isBio && <EditButton onClick={() => setEditingBio(true)} />}
               {!isBio && <EditButton onClick={() => setEditingList(true)} label="EDIT LIST" />}
@@ -280,7 +273,7 @@ export default function AboutMe() {
         onClose={() => setEditingList(false)}
         title={section.lower}
         values={{ items: isBio ? [] : section.upper.map((it, i) => ({ id: it.id || `e-${i}`, title: it.title, meta: it.meta || "", poster: it.poster || "", showImage: it.showImage !== false && !!it.poster })) }}
-        custom={(draft, setDraft) => <ListEditor draft={draft} setDraft={setDraft} placeholderIcon={createElement(section.icon)} />}
+        custom={(draft, setDraft) => <ListEditor draft={draft} setDraft={setDraft} />}
         onSave={saveList}
       />
 
@@ -1288,7 +1281,6 @@ export default function AboutMe() {
                 <div className="am-role">{ROLES[i].text}</div>
                 <div className="am-main">
                   <div className="am-main-top">
-                    <span className="am-interest-icon" aria-hidden="true">{createElement(REVEAL_CONTENT[i].icon)}</span>
                     <div className="am-label">{item.label}</div>
                   </div>
                 </div>
